@@ -8,9 +8,10 @@ version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    mavenLocal()
     jcenter()
     maven {
-        url "httpsL//dl.bintray.com/kotlin/kotlinx"
+        url "https://dl.bintray.com/kotlin/kotlinx"
     }
 }
 
@@ -20,6 +21,9 @@ dependencies {
     api "org.yaml:snakeyaml:$snakeyamlVersion"
     implementation "org.hexworks.zircon:zircon.core-jvm:$zirconVersion"
     implementation "org.hexworks.zircon:zircon.jvm.swing:$zirconVersion"
+    implementation "org.slf4j:slf4j-api:$slf4jVersion"
+    implementation "org.slf4j:slf4j-simple:$slf4jVersion"
+    implementation "org.hexworks.amethyst:amethyst.core-jvm:$amethystVersion"
 }
 
 test {
@@ -35,5 +39,5 @@ compileTestKotlin {
 }
 
 application {
-    mainClassName = 'MainKt'
+    mainClassName = 'rakaneth.wolfsden.MainKt'
 }

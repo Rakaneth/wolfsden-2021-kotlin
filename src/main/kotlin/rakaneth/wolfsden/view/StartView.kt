@@ -1,4 +1,4 @@
-package view
+package rakaneth.wolfsden.view
 
 import org.hexworks.zircon.api.ColorThemes
 import org.hexworks.zircon.api.ComponentDecorations.box
@@ -12,7 +12,7 @@ class StartView(private val grid: TileGrid)
     : BaseView(grid, ColorThemes.arc()) {
         init {
             val msg = "Welcome to Wolf's Den Zircon Edition."
-            val header = Components.textBox(contentWidth = msg.length)
+            val header = Components.textBox(contentWidth=msg.length)
                 .addHeader(msg)
                 .addNewLine()
                 .withAlignmentWithin(screen, ComponentAlignment.CENTER)
