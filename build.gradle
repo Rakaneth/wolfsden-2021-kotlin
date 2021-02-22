@@ -1,0 +1,39 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.4.30'
+    id 'application'
+}
+
+group = 'me.rakan'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven {
+        url "httpsL//dl.bintray.com/kotlin/kotlinx"
+    }
+}
+
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
+    api "com.squidpony:squidlib-util:$squidlibVersion"
+    api "org.yaml:snakeyaml:$snakeyamlVersion"
+    implementation "org.hexworks.zircon:zircon.core-jvm:$zirconVersion"
+    implementation "org.hexworks.zircon:zircon.jvm.swing:$zirconVersion"
+}
+
+test {
+    useJUnit()
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = '1.8'
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = '1.8'
+}
+
+application {
+    mainClassName = 'MainKt'
+}
