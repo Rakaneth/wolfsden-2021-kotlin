@@ -10,4 +10,5 @@ fun main(args: Array<String>) {
         .build()
     val grid = SwingApplications.startTileGrid(config)
     StartView(grid).dock()
+
 }

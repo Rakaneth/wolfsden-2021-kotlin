@@ -24,6 +24,10 @@ class StartView(private val grid: TileGrid)
                 .withDecorations(box(), shadow())
                 .build()
 
+            startButton.onActivated {
+                replaceWith(PlayView(grid))
+            }
+
             screen.addComponents(header, startButton)
         }
 }
