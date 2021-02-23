@@ -14,7 +14,7 @@ object GameConfig {
 
     const val GAME_W = 100
     const val GAME_H = 40
-    const val DUNGEON_LEVELS = 2
+    const val DUNGEON_LEVELS = 5
     const val MAP_W = 70
     const val MAP_H = 30
     const val MSG_W = 40
@@ -35,10 +35,10 @@ object GameConfig {
     val THEME = ColorThemes.zenburnVanilla()
 
     val WORLD_SIZE = Size3D.create(GAME_W, GAME_H, DUNGEON_LEVELS)
-    val GAME_AREA_SIZE = Size3D.create(MAP_W, MAP_H, DUNGEON_LEVELS)
+    val GAME_AREA_SIZE = Size3D.create(MAP_W, MAP_H, 1)
 
     val MapRNG: IRNG = StatefulRNG(0xDEADBEEF)
-    val GameRNG: IRNG = StatefulRNG(0xDEADBEEF)
+    val GameRNG: IRNG = StatefulRNG()
 
     fun buildAppConfig() = AppConfig.newBuilder()
         .withDefaultTileset(TILESET)

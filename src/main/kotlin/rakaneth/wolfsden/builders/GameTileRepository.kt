@@ -3,14 +3,19 @@ package rakaneth.wolfsden.builders
 import org.hexworks.zircon.api.data.CharacterTile
 import org.hexworks.zircon.api.data.Tile
 import org.hexworks.zircon.api.graphics.Symbols
+import rakaneth.wolfsden.builders.GameColors.DEEP_BG
+import rakaneth.wolfsden.builders.GameColors.DEEP_FG
 import rakaneth.wolfsden.builders.GameColors.FLOOR_BG
 import rakaneth.wolfsden.builders.GameColors.FLOOR_FG
+import rakaneth.wolfsden.builders.GameColors.SHALLOW_BG
+import rakaneth.wolfsden.builders.GameColors.SHALLOW_FG
 import rakaneth.wolfsden.builders.GameColors.STAIR_BG
 import rakaneth.wolfsden.builders.GameColors.STAIR_FG
 import rakaneth.wolfsden.builders.GameColors.WALL_BG
 import rakaneth.wolfsden.builders.GameColors.WALL_FG
 
 object GameTileRepository {
+
     val EMPTY: CharacterTile = Tile.empty()
     val FLOOR: CharacterTile = Tile.newBuilder()
         .withCharacter(Symbols.INTERPUNCT)
@@ -34,5 +39,17 @@ object GameTileRepository {
         .withCharacter('<')
         .withForegroundColor(STAIR_FG)
         .withBackgroundColor(STAIR_BG)
+        .buildCharacterTile()
+
+    val SHALLOW: CharacterTile = Tile.newBuilder()
+        .withCharacter('~')
+        .withForegroundColor(SHALLOW_FG)
+        .withBackgroundColor(SHALLOW_BG)
+        .buildCharacterTile()
+
+    val DEEP: CharacterTile = Tile.newBuilder()
+        .withCharacter('~')
+        .withForegroundColor(DEEP_FG)
+        .withBackgroundColor(DEEP_BG)
         .buildCharacterTile()
 }

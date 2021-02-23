@@ -13,6 +13,7 @@ class GameState(val gmap: GameMap) {
             .withBaseMap()
             .withDoorPct(15, 0)
             .withWaterPct(30, 1)
+            .withWaterPct(50, 4)
             .build(visibleSize))
     }
 }

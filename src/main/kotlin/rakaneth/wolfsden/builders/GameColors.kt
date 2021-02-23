@@ -9,4 +9,8 @@ object GameColors {
     val FLOOR_BG = TileColor.fromString("#1E2320")
     val STAIR_FG = TileColor.fromString("yellow")
     val STAIR_BG = FLOOR_BG
+    val SHALLOW_FG = TileColor.fromString("#999999")
+    val SHALLOW_BG = TileColor.fromString("cyan")
+    val DEEP_FG = SHALLOW_FG
+    val DEEP_BG = TileColor.fromString("blue")
 }
