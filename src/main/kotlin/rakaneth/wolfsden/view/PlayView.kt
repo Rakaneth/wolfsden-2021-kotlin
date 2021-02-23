@@ -1,36 +1,42 @@
 package rakaneth.wolfsden.view
 
-import org.hexworks.zircon.api.ColorThemes
 import org.hexworks.zircon.api.ComponentDecorations.box
-import org.hexworks.zircon.api.ComponentDecorations.shadow
 import org.hexworks.zircon.api.Components
+import org.hexworks.zircon.api.component.ColorTheme
 import org.hexworks.zircon.api.component.ComponentAlignment
 import org.hexworks.zircon.api.grid.TileGrid
 import org.hexworks.zircon.api.view.base.BaseView
+import rakaneth.wolfsden.GameConfig
 
-class PlayView(private val grid: TileGrid)
-    : BaseView(grid, ColorThemes.arc()){
+class PlayView(
+    private val grid: TileGrid,
+    theme: ColorTheme = GameConfig.THEME)
+    : BaseView(grid, theme){
         init {
-            val loseButton = Components.button()
-                .withAlignmentWithin(screen, ComponentAlignment.LEFT_CENTER)
-                .withText("Lose!")
-                .withDecorations(box(), shadow())
+            val msgBox = Components.logArea()
+                .withSize(GameConfig.MSG_W, GameConfig.MSG_H)
+                .withDecorations(box(title="Messages"))
+                .withAlignmentWithin(screen, ComponentAlignment.BOTTOM_LEFT)
                 .build()
 
-            val winButton = Components.button()
-                .withAlignmentWithin(screen, ComponentAlignment.RIGHT_CENTER)
-                .withText("Win!")
-                .withDecorations(box(), shadow())
+            val skillBox = Components.panel()
+                .withSize(GameConfig.SKIL_W, GameConfig.SKIL_H)
+                .withDecorations(box(title="Skills"))
+                .withAlignmentAround(msgBox, ComponentAlignment.RIGHT_CENTER)
                 .build()
 
-            loseButton.onActivated {
-                replaceWith(LoseView(grid))
-            }
+            val infoBox = Components.panel()
+                .withSize(GameConfig.INFO_W, GameConfig.INFO_H)
+                .withDecorations(box(title="Info"))
+                .withAlignmentAround(skillBox, ComponentAlignment.RIGHT_CENTER)
+                .build()
 
-            winButton.onActivated {
-                replaceWith(WinView(grid))
-            }
+            val statBox = Components.panel()
+                .withSize(GameConfig.STATS_W, GameConfig.STATS_H)
+                .withDecorations(box(title="Stats"))
+                .withAlignmentWithin(screen, ComponentAlignment.TOP_RIGHT)
+                .build()
 
-            screen.addComponents(loseButton, winButton)
+            screen.addComponents(msgBox, skillBox, infoBox, statBox)
         }
 }
