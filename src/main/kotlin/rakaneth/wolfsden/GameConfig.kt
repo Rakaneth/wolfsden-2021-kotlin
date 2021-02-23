@@ -4,6 +4,8 @@ import org.hexworks.zircon.api.CP437TilesetResources
 import org.hexworks.zircon.api.ColorThemes
 import org.hexworks.zircon.api.application.AppConfig
 import org.hexworks.zircon.api.data.Size3D
+import squidpony.squidmath.IRNG
+import squidpony.squidmath.StatefulRNG
 import java.awt.Toolkit
 
 object GameConfig {
@@ -34,6 +36,9 @@ object GameConfig {
 
     val WORLD_SIZE = Size3D.create(GAME_W, GAME_H, DUNGEON_LEVELS)
     val GAME_AREA_SIZE = Size3D.create(MAP_W, MAP_H, DUNGEON_LEVELS)
+
+    val MapRNG: IRNG = StatefulRNG(0xDEADBEEF)
+    val GameRNG: IRNG = StatefulRNG(0xDEADBEEF)
 
     fun buildAppConfig() = AppConfig.newBuilder()
         .withDefaultTileset(TILESET)
