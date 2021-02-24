@@ -7,6 +7,7 @@ import rakaneth.wolfsden.builders.GameColors.DEEP_BG
 import rakaneth.wolfsden.builders.GameColors.DEEP_FG
 import rakaneth.wolfsden.builders.GameColors.FLOOR_BG
 import rakaneth.wolfsden.builders.GameColors.FLOOR_FG
+import rakaneth.wolfsden.builders.GameColors.PLAYER_FG
 import rakaneth.wolfsden.builders.GameColors.SHALLOW_BG
 import rakaneth.wolfsden.builders.GameColors.SHALLOW_FG
 import rakaneth.wolfsden.builders.GameColors.STAIR_BG
@@ -51,5 +52,11 @@ object GameTileRepository {
         .withCharacter('~')
         .withForegroundColor(DEEP_FG)
         .withBackgroundColor(DEEP_BG)
+        .buildCharacterTile()
+
+    val PLAYER: CharacterTile = Tile.newBuilder()
+        .withCharacter('@')
+        .withBackgroundColor(FLOOR_BG)
+        .withForegroundColor(PLAYER_FG)
         .buildCharacterTile()
 }

@@ -29,7 +29,7 @@ object GameConfig {
     const val STATS_H = 30
 
     val TILESET = if (screenSize.width < 1600) {
-        CP437TilesetResources.jolly12x12()
+        CP437TilesetResources.cheepicus14x14()
     } else {
         CP437TilesetResources.cooz16x16()
     }

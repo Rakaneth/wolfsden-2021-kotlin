@@ -2,7 +2,7 @@ package rakaneth.wolfsden
 
 import org.hexworks.zircon.api.data.Size3D
 import rakaneth.wolfsden.builders.WorldBuilder
-import rakaneth.wolfsden.map.GameMap
+import rakaneth.wolfsden.world.GameMap
 
 class GameState(val gmap: GameMap) {
     companion object {

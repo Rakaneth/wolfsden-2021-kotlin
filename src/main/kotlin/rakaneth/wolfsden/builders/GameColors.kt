@@ -13,4 +13,5 @@ object GameColors {
     val SHALLOW_BG = TileColor.fromString("cyan")
     val DEEP_FG = SHALLOW_FG
     val DEEP_BG = TileColor.fromString("blue")
+    val PLAYER_FG = TileColor.fromString("#DDDDDD")
 }

@@ -4,7 +4,7 @@ import org.hexworks.zircon.api.data.Position3D
 import org.hexworks.zircon.api.data.Size3D
 import rakaneth.wolfsden.GameConfig
 import rakaneth.wolfsden.blocks.GameBlock
-import rakaneth.wolfsden.map.GameMap
+import rakaneth.wolfsden.world.GameMap
 import squidpony.squidgrid.mapping.DungeonGenerator
 import squidpony.squidgrid.mapping.SerpentDeepMapGenerator
 
