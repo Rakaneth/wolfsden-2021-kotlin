@@ -15,11 +15,12 @@ import org.hexworks.zircon.api.view.base.BaseView
 import org.hexworks.zircon.internal.game.impl.GameAreaComponentRenderer
 import rakaneth.wolfsden.GameConfig
 import rakaneth.wolfsden.GameState
+import rakaneth.wolfsden.builders.GameBuilder
 import rakaneth.wolfsden.builders.GameTileRepository
 
 class PlayView(
     private val grid: TileGrid,
-    private val gamestate: GameState = GameState.create(),
+    private val gamestate: GameState = GameBuilder.create(),
     theme: ColorTheme = GameConfig.THEME)
     : BaseView(grid, theme){
         init {
