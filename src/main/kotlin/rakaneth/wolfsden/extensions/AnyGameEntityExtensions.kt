@@ -24,6 +24,9 @@ var AnyGameEntity.position
         }
     }
 
+val AnyGameEntity.positionProperty
+    get() = this.tryToFindAttribute(EntityPosition::class).positionProperty
+
 val AnyGameEntity.tile: Tile
     get() = this.tryToFindAttribute(EntityTile::class).tile
 

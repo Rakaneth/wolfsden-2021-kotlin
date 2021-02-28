@@ -13,3 +13,4 @@ object Diggable : BaseFacet<GameContext, Dig>(Dig::class) {
         return Consumed
     }
 }
+

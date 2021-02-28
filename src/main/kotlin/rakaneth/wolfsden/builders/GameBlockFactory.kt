@@ -8,5 +8,5 @@ object GameBlockFactory {
     fun stairs_down() = GameBlock(GameTileRepository.STAIRS_DOWN)
     fun stairs_up() = GameBlock(GameTileRepository.STAIRS_UP)
     fun shallow() = GameBlock(GameTileRepository.SHALLOW)
-    fun deep() = GameBlock(GameTileRepository.DEEP)
+    fun deep() = GameBlock.createWith(EntityFactory.newDeep())
 }

@@ -7,6 +7,7 @@ import rakaneth.wolfsden.EntityTile
 import rakaneth.wolfsden.attributes.EntityActions
 import rakaneth.wolfsden.attributes.EntityPosition
 import rakaneth.wolfsden.attributes.flags.BlockOccupier
+import rakaneth.wolfsden.attributes.types.Deep
 import rakaneth.wolfsden.attributes.types.Player
 import rakaneth.wolfsden.attributes.types.Wall
 import rakaneth.wolfsden.builders.GameTileRepository.PLAYER
@@ -37,6 +38,13 @@ object EntityFactory {
             EntityPosition(),
             BlockOccupier,
             EntityTile(GameTileRepository.WALL))
-        facets(Diggable)
+    }
+
+    fun newDeep() = newGameEntityOfType(Deep) {
+        attributes(
+            EntityPosition(),
+            BlockOccupier,
+            EntityTile(GameTileRepository.DEEP)
+        )
     }
 }

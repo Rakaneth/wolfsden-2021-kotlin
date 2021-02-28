@@ -18,14 +18,14 @@ class GameBuilder(val worldSize: Size3D) {
         .build(GameConfig.GAME_AREA_SIZE)
 
     private fun prepareWorld() = also {
-        gmap.scrollUpBy(gmap.actualSize.zLength)
+        //gmap.scrollUpBy(gmap.actualSize.zLength)
     }
 
     private fun addPlayer(): GameEntity<Player> {
         val player = EntityFactory.newPlayer()
         val playerPositioned = gmap.addAtEmptyPosition(
             player,
-            offset = Position3D.create(0, 0, GameConfig.DUNGEON_LEVELS - 1),
+            offset = Position3D.create(0, 0, 0),
             size = gmap.visibleSize.copy(zLength = 0)
         )
         if (playerPositioned) {

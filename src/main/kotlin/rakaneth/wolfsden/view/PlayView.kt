@@ -1,11 +1,13 @@
 package rakaneth.wolfsden.view
 
+import org.hexworks.cobalt.databinding.api.extension.createPropertyFrom
 import org.hexworks.cobalt.databinding.api.extension.toProperty
 import org.hexworks.zircon.api.CharacterTileStrings
 import org.hexworks.zircon.api.ComponentDecorations.box
 import org.hexworks.zircon.api.Components
 import org.hexworks.zircon.api.component.ColorTheme
 import org.hexworks.zircon.api.component.ComponentAlignment
+import org.hexworks.zircon.api.component.builder.ComponentBuilder
 import org.hexworks.zircon.api.component.renderer.ComponentDecorationRenderer
 import org.hexworks.zircon.api.game.ProjectionMode
 import org.hexworks.zircon.api.graphics.TextWrap
@@ -20,6 +22,8 @@ import rakaneth.wolfsden.GameState
 import rakaneth.wolfsden.builders.GameBuilder
 import rakaneth.wolfsden.builders.GameTileRepository
 import rakaneth.wolfsden.extensions.position
+import rakaneth.wolfsden.extensions.positionProperty
+import rakaneth.wolfsden.extensions.toStringProperty
 
 class PlayView(
     private val grid: TileGrid,
@@ -63,12 +67,13 @@ class PlayView(
             .withAlignmentWithin(screen, ComponentAlignment.TOP_LEFT)
             .build()
 
-        val (curX, curY, curZ) = gamestate.player.position
 
         val posLabel = Components.label()
-            .withText("Pos: ($curX, $curY, $curZ)")
             .withAlignmentWithin(statBox, ComponentAlignment.TOP_LEFT)
-            .build()
+            .withSize(statBox.width-2, 1)
+            .build().apply {
+                textProperty.updateFrom(gamestate.player.positionProperty.toStringProperty())
+            }
 
         statBox.addComponents(posLabel)
 
