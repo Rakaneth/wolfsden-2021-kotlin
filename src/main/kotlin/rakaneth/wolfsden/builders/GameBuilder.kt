@@ -23,11 +23,17 @@ class GameBuilder(val worldSize: Size3D) {
 
     private fun addPlayer(): GameEntity<Player> {
         val player = EntityFactory.newPlayer()
-        gmap.addAtEmptyPosition(
+        val playerPositioned = gmap.addAtEmptyPosition(
             player,
             offset = Position3D.create(0, 0, GameConfig.DUNGEON_LEVELS - 1),
-            size=gmap.visibleSize.copy(zLength = 0))
-        return player
+            size = gmap.visibleSize.copy(zLength = 0)
+        )
+        if (playerPositioned) {
+            return player
+        } else {
+            throw Exception("player not positioned")
+        }
+
     }
 
     fun buildGame(): GameState {
@@ -39,7 +45,6 @@ class GameBuilder(val worldSize: Size3D) {
     companion object {
         fun create() = GameBuilder(GameConfig.WORLD_SIZE).buildGame()
     }
-
 
 
 }
