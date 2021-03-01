@@ -6,6 +6,7 @@ import org.hexworks.amethyst.api.newEntityOfType
 import rakaneth.wolfsden.EntityTile
 import rakaneth.wolfsden.attributes.EntityActions
 import rakaneth.wolfsden.attributes.EntityPosition
+import rakaneth.wolfsden.attributes.EntityVitals
 import rakaneth.wolfsden.attributes.flags.BlockOccupier
 import rakaneth.wolfsden.attributes.types.Deep
 import rakaneth.wolfsden.attributes.types.Player
@@ -28,7 +29,8 @@ object EntityFactory {
         attributes(
             EntityPosition(),
             EntityTile(PLAYER),
-            EntityActions(Dig::class))
+            EntityActions(Dig::class),
+            EntityVitals(10))
         behaviors(InputReceiver)
         facets(Movable, CameraMover)
     }

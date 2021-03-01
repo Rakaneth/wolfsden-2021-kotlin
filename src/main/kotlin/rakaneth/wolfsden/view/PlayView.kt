@@ -21,6 +21,7 @@ import rakaneth.wolfsden.GameConfig
 import rakaneth.wolfsden.GameState
 import rakaneth.wolfsden.builders.GameBuilder
 import rakaneth.wolfsden.builders.GameTileRepository
+import rakaneth.wolfsden.extensions.hpStringProp
 import rakaneth.wolfsden.extensions.position
 import rakaneth.wolfsden.extensions.positionProperty
 import rakaneth.wolfsden.extensions.toStringProperty
@@ -75,7 +76,14 @@ class PlayView(
                 textProperty.updateFrom(gamestate.player.positionProperty.toStringProperty())
             }
 
-        statBox.addComponents(posLabel)
+        val hpLabel = Components.label()
+            .withAlignmentAround(posLabel, ComponentAlignment.BOTTOM_CENTER)
+            .withSize(statBox.width-2, 1)
+            .build().apply {
+                textProperty.updateFrom(gamestate.player.hpStringProp)
+            }
+
+        statBox.addComponents(posLabel, hpLabel)
 
         screen.handleKeyboardEvents(KeyboardEventType.KEY_PRESSED) { e, _ ->
             gamestate.gmap.update(screen, e, gamestate)

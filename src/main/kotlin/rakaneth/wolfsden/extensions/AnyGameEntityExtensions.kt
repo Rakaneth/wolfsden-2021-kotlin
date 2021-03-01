@@ -8,8 +8,11 @@ import org.hexworks.zircon.api.data.Tile
 import rakaneth.wolfsden.EntityTile
 import rakaneth.wolfsden.attributes.EntityActions
 import rakaneth.wolfsden.attributes.EntityPosition
+import rakaneth.wolfsden.attributes.EntityVitals
 import rakaneth.wolfsden.attributes.flags.BlockOccupier
 import rakaneth.wolfsden.world.GameContext
+import squidpony.squidmath.MathExtras.clamp
+import java.lang.Integer.max
 import kotlin.reflect.KClass
 
 fun <T : Attribute> AnyGameEntity.tryToFindAttribute(klass: KClass<T>): T = findAttribute(klass).orElseThrow {
@@ -32,6 +35,28 @@ val AnyGameEntity.tile: Tile
 
 val AnyGameEntity.occupiesBlock: Boolean
     get() = findAttribute(BlockOccupier::class).isPresent
+
+var AnyGameEntity.curHP: Int
+    get() = tryToFindAttribute(EntityVitals::class).curHp
+    set(value) {
+        findAttribute(EntityVitals::class).map {
+            it.curHp = clamp(value, 0, it.maxHp)
+        }
+    }
+
+var AnyGameEntity.maxHP: Int
+    get() = tryToFindAttribute(EntityVitals::class).maxHp
+    set(value) {
+        findAttribute(EntityVitals::class).map {
+            it.maxHp = value
+            if (it.curHp > it.maxHp) {
+                it.curHp = it.maxHp
+            }
+        }
+    }
+
+val AnyGameEntity.hpStringProp
+    get() = tryToFindAttribute(EntityVitals::class).stringProp
 
 suspend fun AnyGameEntity.tryActionsOn(context: GameContext, target: AnyGameEntity): Response {
     var result: Response = Pass
