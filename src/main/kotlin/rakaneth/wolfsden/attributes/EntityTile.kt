@@ -1,4 +1,4 @@
-package rakaneth.wolfsden
+package rakaneth.wolfsden.attributes
 
 import org.hexworks.amethyst.api.base.BaseAttribute
 import org.hexworks.zircon.api.data.Tile

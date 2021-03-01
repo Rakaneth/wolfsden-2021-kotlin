@@ -9,4 +9,6 @@ object GameBlockFactory {
     fun stairs_up() = GameBlock(GameTileRepository.STAIRS_UP)
     fun shallow() = GameBlock(GameTileRepository.SHALLOW)
     fun deep() = GameBlock.createWith(EntityFactory.newDeep())
+    fun doorOpen() = GameBlock.createWith(EntityFactory.newOpenDoor())
+    fun doorClosed() = GameBlock.createWith(EntityFactory.newClosedDoor())
 }

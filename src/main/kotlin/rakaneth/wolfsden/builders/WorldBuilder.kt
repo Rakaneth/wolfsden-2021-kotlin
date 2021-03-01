@@ -47,6 +47,8 @@ class WorldBuilder(private val worldSize: Size3D) {
                         '<' -> GameBlockFactory.stairs_up()
                         ',' -> GameBlockFactory.shallow()
                         '~' -> GameBlockFactory.deep()
+                        '+' -> GameBlockFactory.doorClosed()
+                        '/' -> GameBlockFactory.doorOpen()
                         else -> GameBlockFactory.floor() //TODO: bridge, door tiles
                     }
                 }

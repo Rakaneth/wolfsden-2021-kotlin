@@ -5,7 +5,7 @@ import org.hexworks.amethyst.api.Consumed
 import org.hexworks.amethyst.api.Pass
 import org.hexworks.amethyst.api.Response
 import org.hexworks.zircon.api.data.Tile
-import rakaneth.wolfsden.EntityTile
+import rakaneth.wolfsden.attributes.EntityTile
 import rakaneth.wolfsden.attributes.EntityActions
 import rakaneth.wolfsden.attributes.EntityPosition
 import rakaneth.wolfsden.attributes.EntityVitals

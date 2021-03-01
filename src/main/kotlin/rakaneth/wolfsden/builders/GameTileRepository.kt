@@ -5,6 +5,7 @@ import org.hexworks.zircon.api.data.Tile
 import org.hexworks.zircon.api.graphics.Symbols
 import rakaneth.wolfsden.builders.GameColors.DEEP_BG
 import rakaneth.wolfsden.builders.GameColors.DEEP_FG
+import rakaneth.wolfsden.builders.GameColors.DOOR_BG
 import rakaneth.wolfsden.builders.GameColors.FLOOR_BG
 import rakaneth.wolfsden.builders.GameColors.FLOOR_FG
 import rakaneth.wolfsden.builders.GameColors.PLAYER_FG
@@ -58,5 +59,17 @@ object GameTileRepository {
         .withCharacter('@')
         .withBackgroundColor(FLOOR_BG)
         .withForegroundColor(PLAYER_FG)
+        .buildCharacterTile()
+
+    val DOOR_CLOSED: CharacterTile = Tile.newBuilder()
+        .withCharacter('+')
+        .withBackgroundColor(WALL_BG)
+        .withForegroundColor(WALL_FG)
+        .buildCharacterTile()
+
+    val DOOR_OPEN: CharacterTile = Tile.newBuilder()
+        .withCharacter('`')
+        .withBackgroundColor(WALL_BG)
+        .withForegroundColor(WALL_FG)
         .buildCharacterTile()
 }
