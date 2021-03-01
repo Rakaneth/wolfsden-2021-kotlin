@@ -22,12 +22,14 @@ class WorldBuilder(private val worldSize: Size3D) {
 
     fun withWaterPct(pct: Int, z: Int) = also {
         val floorTiles = base[z]
+        deco.clearEffects()
         deco.addWater(pct)
         base[z] = deco.generateRespectingStairs(floorTiles)
     }
 
     fun withDoorPct(pct: Int, z: Int, doubleDoors: Boolean = false) = also {
         val floorTiles = base[z]
+        deco.clearEffects()
         deco.addDoors(pct, doubleDoors)
         base[z] = deco.generateRespectingStairs(floorTiles)
     }

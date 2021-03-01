@@ -14,7 +14,6 @@ import rakaneth.wolfsden.attributes.types.Wall
 import rakaneth.wolfsden.builders.GameTileRepository.PLAYER
 import rakaneth.wolfsden.messages.Dig
 import rakaneth.wolfsden.systems.CameraMover
-import rakaneth.wolfsden.systems.Diggable
 import rakaneth.wolfsden.systems.InputReceiver
 import rakaneth.wolfsden.systems.Movable
 import rakaneth.wolfsden.world.GameContext

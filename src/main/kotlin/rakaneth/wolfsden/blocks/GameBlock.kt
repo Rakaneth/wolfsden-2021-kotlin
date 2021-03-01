@@ -9,6 +9,8 @@ import rakaneth.wolfsden.builders.GameTileRepository.DEEP
 import rakaneth.wolfsden.builders.GameTileRepository.EMPTY
 import rakaneth.wolfsden.builders.GameTileRepository.FLOOR
 import rakaneth.wolfsden.builders.GameTileRepository.PLAYER
+import rakaneth.wolfsden.builders.GameTileRepository.STAIRS_DOWN
+import rakaneth.wolfsden.builders.GameTileRepository.STAIRS_UP
 import rakaneth.wolfsden.builders.GameTileRepository.WALL
 import rakaneth.wolfsden.extensions.AnyGameEntity
 import rakaneth.wolfsden.extensions.occupiesBlock
@@ -33,6 +35,12 @@ class GameBlock(
 
     val isEmptyFloor: Boolean
         get() = currentEntities.isEmpty()
+
+    val isStairsDown: Boolean
+        get() = defaultTile == STAIRS_DOWN
+
+    val isStairsUp: Boolean
+        get() = defaultTile == STAIRS_UP
 
     val entities: Iterable<AnyGameEntity>
         get() = currentEntities.toList()

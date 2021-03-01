@@ -13,7 +13,7 @@ class GameBuilder(val worldSize: Size3D) {
         .withBaseMap(0, 1)
         .withWaterPct(15, 2)
         .withWaterPct(30, 3)
-        .withDoorPct(50, 0, true)
+        .withDoorPct(100, 0, true)
         .withDoorPct(75, 4, true)
         .build(GameConfig.GAME_AREA_SIZE)
 

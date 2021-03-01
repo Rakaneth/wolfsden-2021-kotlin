@@ -12,7 +12,6 @@ import rakaneth.wolfsden.attributes.EntityVitals
 import rakaneth.wolfsden.attributes.flags.BlockOccupier
 import rakaneth.wolfsden.world.GameContext
 import squidpony.squidmath.MathExtras.clamp
-import java.lang.Integer.max
 import kotlin.reflect.KClass
 
 fun <T : Attribute> AnyGameEntity.tryToFindAttribute(klass: KClass<T>): T = findAttribute(klass).orElseThrow {

@@ -28,6 +28,12 @@ object CameraMover: BaseFacet<GameContext, MoveCamera>(MoveCamera::class) {
             prevPos.x < currentPos.x && screenPos.x > halfW -> {
                 gmap.scrollOneRight()
             }
+            prevPos.z < currentPos.z -> {
+                gmap.scrollUpBy(currentPos.z - prevPos.z)
+            }
+            prevPos.z > currentPos.z -> {
+                gmap.scrollDownBy(prevPos.z - currentPos.z)
+            }
         }
         return Consumed
     }
