@@ -7,6 +7,7 @@ import org.hexworks.zircon.api.component.ColorTheme
 import org.hexworks.zircon.api.component.ComponentAlignment
 import org.hexworks.zircon.api.game.ProjectionMode
 import org.hexworks.zircon.api.grid.TileGrid
+import org.hexworks.zircon.api.uievent.KeyCode
 import org.hexworks.zircon.api.uievent.KeyboardEventType
 import org.hexworks.zircon.api.uievent.Processed
 import org.hexworks.zircon.api.view.base.BaseView
@@ -15,6 +16,7 @@ import rakaneth.wolfsden.GameConfig
 import rakaneth.wolfsden.GameState
 import rakaneth.wolfsden.builders.GameBuilder
 import rakaneth.wolfsden.builders.GameTileRepository
+import rakaneth.wolfsden.view.fragment.CheatConsole
 import rakaneth.wolfsden.view.fragment.CreatureStats
 
 class PlayView(
@@ -62,6 +64,9 @@ class PlayView(
         statBox.addFragment(CreatureStats(gamestate.player))
 
         screen.handleKeyboardEvents(KeyboardEventType.KEY_PRESSED) { e, _ ->
+            if (e.code == KeyCode.F2) {
+                screen.openModal(CheatConsole(gamestate))
+            }
             gamestate.gmap.update(screen, e, gamestate)
             Processed
         }
