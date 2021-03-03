@@ -3,6 +3,8 @@ package rakaneth.wolfsden.builders
 import org.hexworks.amethyst.api.builder.EntityBuilder
 import org.hexworks.amethyst.api.entity.EntityType
 import org.hexworks.amethyst.api.newEntityOfType
+import org.hexworks.cobalt.logging.api.LoggerFactory
+import rakaneth.wolfsden.DataReader
 import rakaneth.wolfsden.attributes.*
 import rakaneth.wolfsden.attributes.flags.BlockOccupier
 import rakaneth.wolfsden.attributes.types.Deep
@@ -24,6 +26,12 @@ fun <T : EntityType> newGameEntityOfType(
 ) = newEntityOfType(type, init)
 
 object EntityFactory {
+    private val logger = LoggerFactory.getLogger(this::class)
+    private val creatures: Map<String, CreatureBlueprint> = DataReader.loadCreatureBP()
+    init {
+        logger.info("Creatures loaded: ${creatures.size}")
+    }
+
     fun newPlayer() = newGameEntityOfType(Player) {
         attributes(
             EntityPosition(),
