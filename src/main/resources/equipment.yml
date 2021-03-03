@@ -9,10 +9,10 @@ wolfFangs:
   dmg: 1
   dly: 4
   tags:
-  - melee
-  - natural
-  - wolf
-  - pierce
+    - melee
+    - natural
+    - wolf
+    - pierce
 wolfClaws:
   name: Wolf Claws
   desc: Short, furry claws from a large wolf.
@@ -23,10 +23,10 @@ wolfClaws:
   atk: 1
   dly: 3
   tags:
-  - melee
-  - natural
-  - wolf
-  - slash
+    - melee
+    - natural
+    - wolf
+    - slash
 ironSword:
   name: Iron Sword
   desc: A serviceable, sturdy shortsword.
@@ -38,9 +38,9 @@ ironSword:
   dmg: 1
   dly: 4
   tags:
-  - melee
-  - slash
-  - pierce
+    - melee
+    - slash
+    - pierce
 dagger:
   name: Dagger
   desc: A short, common dagger.
@@ -52,10 +52,10 @@ dagger:
   dmg: 1
   dly: 4
   tags:
-  - melee
-  - close
-  - pierce
-  - slash
+    - melee
+    - close
+    - pierce
+    - slash
 mace:
   name: Mace
   desc: An intimidating iron mace.
@@ -66,21 +66,21 @@ mace:
   dmg: 3
   dly: 6
   tags:
-  - melee
-  - bash
+    - melee
+    - bash
 greatAxe:
   name: Greataxe
   desc: A heavy bearded axe,
   glyph: "/"
   color: White
   freq: 10
-  slot: 2H
+  slot: TWOH
   atk: 1
   dmg: 4
   dly: 7
   tags:
-  - melee
-  - slash
+    - melee
+    - slash
 wolfFur:
   name: Wolf Furs
   desc: A thick layer of shaggy wolf fur.
@@ -92,8 +92,8 @@ wolfFur:
   dly: 5
   prot: 10
   tags:
-  - natural
-  - wolf
+    - natural
+    - wolf
 leather:
   name: Leather Jerkin
   desc: A sturdy, supple leather jack.
@@ -105,7 +105,7 @@ leather:
   dly: 4
   prot: 15
   tags:
-  - natural
+    - natural
 chainMail:
   name: Chainmail
   desc: A heavy chain hauberk.
@@ -116,7 +116,7 @@ chainMail:
   dly: 7
   prot: 25
   tags:
-  - natural
+    - natural
 woodShield:
   name: Wooden Shield
   desc: A sturdy wooden shield embossed with bronze.
@@ -129,22 +129,22 @@ woodShield:
   dly: 6
   prot: 5
   tags:
-  - shield
+    - shield
 fellHammer:
   name: The Fell Hammer
   desc: A massive warhammer covered in bloody spikes.
   glyph: 0188
   color: '#301934'
-  slot: 2H
+  slot: TWOH
   atk: 3
   dmg: 3
   dly: 7
   prot: 10
   tags:
-  - dark
-  - magic
-  - melee
-  - bash
+    - dark
+    - magic
+    - melee
+    - bash
 shadowRobe:
   name: The Robe of Shadow
   desc: A tattered robe that seems to move on its own.
@@ -156,8 +156,8 @@ shadowRobe:
   dly: 4
   prot: 10
   tags:
-  - dark
-  - magic
+    - dark
+    - magic
 wolfCharm:
   name: Wolf Charm
   desc: A necklace of fangs and claws on leather cord.
@@ -167,9 +167,9 @@ wolfCharm:
   slot: trinket
   atk: 1
   dmg: 1
-  tags:
-  - O-natural
-  - O-wolf
+  resistance:
+    - natural
+    - wolf
 ravenSymbol:
   name: Raven Medallion
   desc: A holy symbol of the Raven.
@@ -180,8 +180,9 @@ ravenSymbol:
   sav: 1
   prot: 5
   tags:
-  - holy
-  - war
-  - death
-  - O-dark
+    - holy
+    - war
+    - death
+  resistance:
+    - dark
   dfp: 1

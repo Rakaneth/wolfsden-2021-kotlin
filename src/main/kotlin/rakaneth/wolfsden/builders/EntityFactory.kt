@@ -26,11 +26,9 @@ fun <T : EntityType> newGameEntityOfType(
 ) = newEntityOfType(type, init)
 
 object EntityFactory {
-    private val logger = LoggerFactory.getLogger(this::class)
-    private val creatures: Map<String, CreatureBlueprint> = DataReader.loadCreatureBP()
-    init {
-        logger.info("Creatures loaded: ${creatures.size}")
-    }
+    private val creatureBP = DataReader.loadCreatureBP()
+    private val itemBP = DataReader.loadItemBP()
+    private val equipBP = DataReader.loadEquipBP()
 
     fun newPlayer() = newGameEntityOfType(Player) {
         attributes(

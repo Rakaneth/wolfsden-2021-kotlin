@@ -2,7 +2,7 @@
 rations:
   name: Rations
   desc: Salted meat and hard tack, surprisingly still edible.
-  glyph: 003B
+  glyph: \u003B
   color: '#6A5B4D'
   itemType: food
   freq: 10

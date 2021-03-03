@@ -13,6 +13,7 @@ data class CreatureBlueprint(
     val stam: Int = 0,
     val spd: Int = 0,
     val skl: Int = 0,
+    val freq: Int = 0,
     val glyph: Char = '@',
     val color: String = "white",
     val mh: String = "none",
