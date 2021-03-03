@@ -13,7 +13,7 @@ data class CreatureBlueprint(
     val stam: Int = 0,
     val spd: Int = 0,
     val skl: Int = 0,
-    val freq: Int = 0,
+    override val freq: Int = 0,
     val glyph: Char = '@',
     val color: String = "white",
     val mh: String = "none",
@@ -30,4 +30,4 @@ data class CreatureBlueprint(
     val immunity: List<String> = listOf(),
     val skills: List<String> = listOf(),
     val factions: FactionBlueprint = FactionBlueprint()
-)
+): Blueprint

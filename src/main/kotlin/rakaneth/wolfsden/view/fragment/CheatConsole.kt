@@ -15,6 +15,9 @@ import org.hexworks.zircon.internal.component.impl.textedit.cursor.Cursor
 import org.hexworks.zircon.internal.component.modal.EmptyModalResult
 import rakaneth.wolfsden.GameConfig
 import rakaneth.wolfsden.GameState
+import rakaneth.wolfsden.builders.EntityFactory.getRandomCreature
+import rakaneth.wolfsden.builders.EntityFactory.getRandomEquip
+import rakaneth.wolfsden.builders.EntityFactory.getRandomItem
 
 class CheatConsole(val gameState: GameState): ModalFragment<EmptyModalResult> {
     val logger = LoggerFactory.getLogger(this::class)
@@ -64,7 +67,12 @@ class CheatConsole(val gameState: GameState): ModalFragment<EmptyModalResult> {
     private fun parseCommand(cmd: String): Maybe<String> {
         //TODO: parse command
         logger.info("Processing cmd $cmd")
-        return Maybe.of(cmd)
+        return when (cmd.toLowerCase()) {
+            "item" -> Maybe.of(getRandomItem().name)
+            "creature" -> Maybe.of(getRandomCreature().name)
+            "equip" -> Maybe.of(getRandomEquip().name)
+            else -> Maybe.of("Unknown command")
+        }
     }
 
     override val root = ModalBuilder.newBuilder<EmptyModalResult>()

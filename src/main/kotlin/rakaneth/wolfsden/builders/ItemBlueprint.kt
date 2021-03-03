@@ -6,7 +6,7 @@ data class ItemBlueprint(
     val glyph: Char = '@',
     val color: String = "white",
     val itemType: ItemType = ItemType.HEALING,
-    val freq: Int = 0,
+    override val freq: Int = 0,
     val pctAmt: Double = 0.0,
     val flatAmt: Int = 0
-)
+): Blueprint

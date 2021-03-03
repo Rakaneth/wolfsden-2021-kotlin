@@ -5,7 +5,7 @@ data class EquipmentBlueprint(
     val desc: String = "No desc",
     val glyph: Char = '@',
     val color: String = "white",
-    val freq: Int = 0,
+    override val freq: Int = 0,
     val slot: EquipSlot = EquipSlot.MH,
     val atk: Int = 0,
     val dfp: Int = 0,
@@ -18,4 +18,4 @@ data class EquipmentBlueprint(
     val vulnerability: List<String> = listOf(),
     val resistance: List<String> = listOf(),
     val immunity: List<String> = listOf()
-)
+): Blueprint

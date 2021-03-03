@@ -5,6 +5,7 @@ import org.hexworks.amethyst.api.entity.EntityType
 import org.hexworks.amethyst.api.newEntityOfType
 import org.hexworks.cobalt.logging.api.LoggerFactory
 import rakaneth.wolfsden.DataReader
+import rakaneth.wolfsden.GameConfig
 import rakaneth.wolfsden.attributes.*
 import rakaneth.wolfsden.attributes.flags.BlockOccupier
 import rakaneth.wolfsden.attributes.types.Deep
@@ -19,16 +20,40 @@ import rakaneth.wolfsden.systems.InputReceiver
 import rakaneth.wolfsden.systems.Movable
 import rakaneth.wolfsden.systems.Openable
 import rakaneth.wolfsden.world.GameContext
+import squidpony.squidmath.ProbabilityTable
 
 fun <T : EntityType> newGameEntityOfType(
     type: T,
     init: EntityBuilder<T, GameContext>.() -> Unit
 ) = newEntityOfType(type, init)
 
+fun Map<String, Blueprint>.probabilityTableFor(): ProbabilityTable<String> {
+    val result = ProbabilityTable<String>(GameConfig.MapRNG)
+    this.forEach { (k, v) ->
+        result.add(k, v.freq)
+    }
+    return result
+}
+
 object EntityFactory {
     private val creatureBP = DataReader.loadCreatureBP()
     private val itemBP = DataReader.loadItemBP()
     private val equipBP = DataReader.loadEquipBP()
+    private val creatureTable = creatureBP.probabilityTableFor()
+    private val itemTable = itemBP.probabilityTableFor()
+    private val equipTable = equipBP.probabilityTableFor()
+
+    fun getRandomCreature(): CreatureBlueprint {
+        return creatureBP.getValue(creatureTable.random())
+    }
+
+    fun getRandomItem(): ItemBlueprint {
+        return itemBP.getValue(itemTable.random())
+    }
+
+    fun getRandomEquip(): EquipmentBlueprint {
+        return equipBP.getValue(equipTable.random())
+    }
 
     fun newPlayer() = newGameEntityOfType(Player) {
         attributes(
