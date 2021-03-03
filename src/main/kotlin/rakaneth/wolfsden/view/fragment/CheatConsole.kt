@@ -1,5 +1,6 @@
 package rakaneth.wolfsden.view.fragment
 
+import org.hexworks.cobalt.datatypes.Maybe
 import org.hexworks.cobalt.logging.api.LoggerFactory
 import org.hexworks.zircon.api.ComponentDecorations.box
 import org.hexworks.zircon.api.Components
@@ -46,10 +47,11 @@ class CheatConsole(val gameState: GameState): ModalFragment<EmptyModalResult> {
                         .withAlignmentAround(textBox, ComponentAlignment.RIGHT_CENTER)
                         .build().apply {
                             onActivated {
-                                //TODO: parse command
-                                val msg = textBox.text.trim()
-                                console.addParagraph(msg, false)
-                                logger.info("Adding msg $msg")
+                                val cmd = textBox.text.trim()
+                                val result = parseCommand(cmd)
+                                result.ifPresent {
+                                    console.addParagraph(it, false)
+                                }
                                 textBox.text = ""
                                 textBox.requestFocus()
                             }
@@ -58,6 +60,12 @@ class CheatConsole(val gameState: GameState): ModalFragment<EmptyModalResult> {
                 }
             addComponents(console, inputArea)
         }
+
+    private fun parseCommand(cmd: String): Maybe<String> {
+        //TODO: parse command
+        logger.info("Processing cmd $cmd")
+        return Maybe.of(cmd)
+    }
 
     override val root = ModalBuilder.newBuilder<EmptyModalResult>()
         .withComponent(component)
