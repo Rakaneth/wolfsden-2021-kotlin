@@ -27,9 +27,9 @@ fun <T : EntityType> newGameEntityOfType(
     init: EntityBuilder<T, GameContext>.() -> Unit
 ) = newEntityOfType(type, init)
 
-fun Map<String, Blueprint>.probabilityTableFor(): ProbabilityTable<String> {
+fun <T: Blueprint> BlueprintHolder<T>.probabilityTableFor(): ProbabilityTable<String> {
     val result = ProbabilityTable<String>(GameConfig.MapRNG)
-    this.forEach { (k, v) ->
+    this.table.forEach { (k, v) ->
         result.add(k, v.freq)
     }
     return result
@@ -44,15 +44,15 @@ object EntityFactory {
     private val equipTable = equipBP.probabilityTableFor()
 
     fun getRandomCreature(): CreatureBlueprint {
-        return creatureBP.getValue(creatureTable.random())
+        return creatureBP.table.getValue(creatureTable.random())
     }
 
     fun getRandomItem(): ItemBlueprint {
-        return itemBP.getValue(itemTable.random())
+        return itemBP.table.getValue(itemTable.random())
     }
 
     fun getRandomEquip(): EquipmentBlueprint {
-        return equipBP.getValue(equipTable.random())
+        return equipBP.table.getValue(equipTable.random())
     }
 
     fun newPlayer() = newGameEntityOfType(Player) {

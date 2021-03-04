@@ -3,10 +3,7 @@ package rakaneth.wolfsden
 import org.slf4j.LoggerFactory
 import org.yaml.snakeyaml.Yaml
 import org.yaml.snakeyaml.constructor.Constructor
-import rakaneth.wolfsden.builders.Blueprint
-import rakaneth.wolfsden.builders.CreatureBlueprint
-import rakaneth.wolfsden.builders.EquipmentBlueprint
-import rakaneth.wolfsden.builders.ItemBlueprint
+import rakaneth.wolfsden.builders.*
 import java.io.BufferedInputStream
 import java.io.File
 
@@ -17,20 +14,20 @@ object DataReader {
     private const val itemFile = "items.yml"
     private const val equipFile = "equipment.yml"
 
-    private fun  loadBlueprints(fileName: String): Map<String, Blueprint> {
-        val yaml = Yaml(Constructor())
+    private fun <R, T: BlueprintHolder<R>> loadBlueprints(fileName: String, klass: Class<T>): T {
+        val yaml = Yaml(Constructor(klass))
         val stream = javaClass.classLoader.getResourceAsStream(fileName)
-        var result: Map<String, Blueprint>
+        var result: T
         BufferedInputStream(stream!!).use {
-            result = yaml.loadAs(it, )
+            result = yaml.load(it)
         }
-        if (result.isNotEmpty()) {
-            logger.info("${result.size} items loaded from $fileName")
+        if (result.table.isNotEmpty()) {
+            logger.info("${result.table.size} items loaded from $fileName")
         }
         return result
     }
 
-    fun loadCreatureBP() = loadBlueprints<CreatureBlueprint>(creatureFile)
-    fun loadItemBP() = loadBlueprints<ItemBlueprint>(itemFile)
-    fun loadEquipBP() = loadBlueprints<EquipmentBlueprint>(equipFile)
+    fun loadCreatureBP() = loadBlueprints(creatureFile, CreatureHolder::class.java)
+    fun loadItemBP() = loadBlueprints(itemFile, ItemHolder::class.java)
+    fun loadEquipBP() = loadBlueprints(equipFile, EquipHolder::class.java)
 }

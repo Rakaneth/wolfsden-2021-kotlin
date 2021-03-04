@@ -1,321 +1,322 @@
 ---
-wolf:
-  name: Wolf
-  desc: A large, shaggy wolf.
-  str: 2
-  stam: 2
-  spd: 1
-  skl: 1
-  glyph: W
-  color: '#6A5B4D'
-  mh: wolfFangs
-  oh: wolfClaws
-  armor: wolfFur
-  trinket: none
-  vision: 10
-  xp: 100
-  ai: wolf
-  tags:
-    - wolf
-  weakness:
-    - poison
-  factions:
-    neutral:
+table:
+  wolf:
+    name: Wolf
+    desc: A large, shaggy wolf.
+    str: 2
+    stam: 2
+    spd: 1
+    skl: 1
+    glyph: W
+    color: '#6A5B4D'
+    mh: wolfFangs
+    oh: wolfClaws
+    armor: wolfFur
+    trinket: none
+    vision: 10
+    xp: 100
+    ai: wolf
+    tags:
       - wolf
-    hostile:
-      - hero
-      - undead
-alpha:
-  name: Alpha
-  desc: A large wolf, usually seen at the head of a pack.
-  str: 4
-  stam: 3
-  spd: 2
-  skl: 2
-  glyph: W
-  color: '#8A3324'
-  mh: wolfFangs
-  oh: wolfClaws
-  armor: wolfFur
-  trinket: none
-  vision: 10
-  xp: 300
-  ai: alpha
-  tags:
-    - wolf
-    - leader
-  weakness:
-    - poison
-  skills:
-    - Howl
-  factions:
-    neutral:
+    weakness:
+      - poison
+    factions:
+      neutral:
+        - wolf
+      hostile:
+        - hero
+        - undead
+  alpha:
+    name: Alpha
+    desc: A large wolf, usually seen at the head of a pack.
+    str: 4
+    stam: 3
+    spd: 2
+    skl: 2
+    glyph: W
+    color: '#8A3324'
+    mh: wolfFangs
+    oh: wolfClaws
+    armor: wolfFur
+    trinket: none
+    vision: 10
+    xp: 300
+    ai: alpha
+    tags:
       - wolf
-    hostile:
-      - hero
-      - undead
-dire:
-  name: Great Wolf
-  desc: A massive monster of a wolf.
-  str: 6
-  stam: 5
-  spd: 4
-  skl: 4
-  glyph: W
-  color: '#BEC2CB'
-  mh: wolfFangs
-  oh: wolfClaws
-  armor: wolfFur
-  trinket: none
-  vision: 12
-  xp: 500
-  ai: wolf
-  tags:
-    - wolf
-  weakness:
-    - poison
-  factions:
-    neutral:
+      - leader
+    weakness:
+      - poison
+    skills:
+      - Howl
+    factions:
+      neutral:
+        - wolf
+      hostile:
+        - hero
+        - undead
+  dire:
+    name: Great Wolf
+    desc: A massive monster of a wolf.
+    str: 6
+    stam: 5
+    spd: 4
+    skl: 4
+    glyph: W
+    color: '#BEC2CB'
+    mh: wolfFangs
+    oh: wolfClaws
+    armor: wolfFur
+    trinket: none
+    vision: 12
+    xp: 500
+    ai: wolf
+    tags:
       - wolf
-    hostile:
-      - hero
-      - undead
-direAlpha:
-  name: Great Wolf Alpha
-  desc: The mightiest among wolves, these lupine titans lead packs of great wolves.
-  freq: 1
-  str: 9
-  stam: 8
-  spd: 7
-  skl: 7
-  glyph: W
-  color: Purple
-  mh: wolfClaws
-  oh: wolfClaws
-  armor: wolfFur
-  trinket: none
-  vision: 15
-  xp: 1000
-  ai: alpha
-  tags:
-    - wolf
-    - leader
-  weakness:
-    - poison
-  skills:
-    - Howl
-  factions:
-    neutral:
+    weakness:
+      - poison
+    factions:
+      neutral:
+        - wolf
+      hostile:
+        - hero
+        - undead
+  direAlpha:
+    name: Great Wolf Alpha
+    desc: The mightiest among wolves, these lupine titans lead packs of great wolves.
+    freq: 1
+    str: 9
+    stam: 8
+    spd: 7
+    skl: 7
+    glyph: W
+    color: Purple
+    mh: wolfClaws
+    oh: wolfClaws
+    armor: wolfFur
+    trinket: none
+    vision: 15
+    xp: 1000
+    ai: alpha
+    tags:
       - wolf
-    hostile:
-      - hero
+      - leader
+    weakness:
+      - poison
+    skills:
+      - Howl
+    factions:
+      neutral:
+        - wolf
+      hostile:
+        - hero
+        - undead
+  revenant:
+    name: Fallen Warrior
+    desc: A fallen warrior animated by foul magic.
+    str: 5
+    stam: 7
+    spd: 1
+    skl: 5
+    glyph: U
+    color: '#BEC2CB'
+    mh: ironSword
+    oh: woodShield
+    armor: chainMail
+    trinket: none
+    vision: 6
+    ai: hunt
+    tags:
       - undead
-revenant:
-  name: Fallen Warrior
-  desc: A fallen warrior animated by foul magic.
-  str: 5
-  stam: 7
-  spd: 1
-  skl: 5
-  glyph: U
-  color: '#BEC2CB'
-  mh: ironSword
-  oh: woodShield
-  armor: chainMail
-  trinket: none
-  vision: 6
-  ai: hunt
-  tags:
-    - undead
-    - door
-    - solo
-  vulnerability:
-    - holy
-  resistance:
-    - natural
-  immunity:
-    - poison
-  factions:
-    neutral:
-      - undead
-    hostile:
-      - hero
+      - door
+      - solo
+    vulnerability:
+      - holy
+    resistance:
       - natural
-wolfLord:
-  name: Wolf Lord
-  desc: A savage man with wolflike features, covered in furs
-  str: 7
-  stam: 7
-  spd: 7
-  skl: 7
-  glyph: "@"
-  color: '#6A5B4D'
-  mh: wolfClaws
-  oh: wolfClaws
-  armor: wolfFur
-  trinket: wolfCharm
-  vision: 10
-  xp: 1000
-  ai: alpha
-  tags:
-    - wolf
-    - door
-    - leader
-  skills:
-    - Howl
-  factions:
-    ally:
+    immunity:
+      - poison
+    factions:
+      neutral:
+        - undead
+      hostile:
+        - hero
+        - natural
+  wolfLord:
+    name: Wolf Lord
+    desc: A savage man with wolflike features, covered in furs
+    str: 7
+    stam: 7
+    spd: 7
+    skl: 7
+    glyph: "@"
+    color: '#6A5B4D'
+    mh: wolfClaws
+    oh: wolfClaws
+    armor: wolfFur
+    trinket: wolfCharm
+    vision: 10
+    xp: 1000
+    ai: alpha
+    tags:
       - wolf
-    hostile:
-      - hero
+      - door
+      - leader
+    skills:
+      - Howl
+    factions:
+      ally:
+        - wolf
+      hostile:
+        - hero
+        - undead
+  banshee:
+    name: Banshee
+    desc: A wailing spirit, eerie and translucent.
+    freq: 10
+    str: 3
+    stam: 2
+    spd: 8
+    skl: 9
+    glyph: U
+    color: White
+    mh: none
+    oh: none
+    armor: none
+    trinket: none
+    vision: 6
+    ai: hunt
+    tags:
       - undead
-banshee:
-  name: Banshee
-  desc: A wailing spirit, eerie and translucent.
-  freq: 10
-  str: 3
-  stam: 2
-  spd: 8
-  skl: 9
-  glyph: U
-  color: White
-  mh: none
-  oh: none
-  armor: none
-  trinket: none
-  vision: 6
-  ai: hunt
-  tags:
-    - undead
-    - solo
-  vulnerability:
-    - holy
-  resistamce:
-    - natural
-  immunity:
-    - poison
-  factions:
-    hostile:
-      - hero
+      - solo
+    vulnerability:
+      - holy
+    resistance:
       - natural
-    neutral:
+    immunity:
+      - poison
+    factions:
+      hostile:
+        - hero
+        - natural
+      neutral:
+        - undead
+  margrave:
+    name: Margrave of Bones
+    desc: A frightening creature, thin as a rail, radiating menace.
+    str: 7
+    stam: 7
+    spd: 7
+    skl: 7
+    glyph: U
+    color: Purple
+    mh: fellHammer
+    oh: none
+    armor: shadowRobe
+    trinket: none
+    vision: 8
+    xp: 5000
+    ai: hunt
+    tags:
       - undead
-margrave:
-  name: Margrave of Bones
-  desc: A frightening creature, thin as a rail, radiating menace.
-  str: 7
-  stam: 7
-  spd: 7
-  skl: 7
-  glyph: U
-  color: Purple
-  mh: fellHammer
-  oh: none
-  armor: shadowRobe
-  trinket: none
-  vision: 8
-  xp: 5000
-  ai: hunt
-  tags:
-    - undead
-    - door
-    - leader
-  vulnerability:
-    - holy
-  resistance:
-    - natural
-  immunity:
-    - poison
-  factions:
-    hostile:
-      - hero
+      - door
+      - leader
+    vulnerability:
+      - holy
+    resistance:
       - natural
-    ally:
-      - undead
-fighter:
-  name: Warrior
-  desc: A burly, seasoned warrior.
-  freq: 10
-  str: 2
-  stam: 2
-  spd: 1
-  skl: 1
-  glyph: "@"
-  color: White
-  mh: greatAxe
-  oh: none
-  armor: chainMail
-  trinket: none
-  vision: 6
-  gainsXP: true
-  ai: hunt
-  tags:
-    - hero
-    - door
-    - leader
-  xp: 300
-  skills:
-    - Hulking Titan Stance
-    - Stonebreaker
-    - Rumble
-  factions:
-    hostile:
-      - wolf
-      - undead
-rogue:
-  name: Rogue
-  desc: A lithe, deft scoundrel.
-  freq: 10
-  str: 1
-  stam: 1
-  spd: 2
-  skl: 2
-  glyph: "@"
-  color: Yellow
-  mh: dagger
-  oh: dagger
-  armor: leather
-  trinket: none
-  vision: 6
-  ai: hunt
-  tags:
-    - hero
-    - door
-    - leader
-  gainsXP: true
-  xp: 300
-  skills:
-    - Cunning Snake Stance
-    - Swift Fang Strike
-    - Preparation
-    - Poisoned Blades
-  factions:
-    hostile:
-      - wolf
-      - undead
-cleric:
-  name: Oathbound
-  desc: An Oathbound, devoted to the Raven.
-  freq: 10
-  str: 1
-  stam: 2
-  spd: 1
-  skl: 1
-  glyph: "@"
-  color: Crimson
-  mh: mace
-  oh: woodShield
-  armor: chainMail
-  trinket: ravenSymbol
-  vision: 6
-  ai: hunt
-  tags:
-    - hero
-    - door
-    - leader
-  gainsXP: true
-  xp: 300
-  factions:
-    hostile:
-      - wolf
-      - undead
+    immunity:
+      - poison
+    factions:
+      hostile:
+        - hero
+        - natural
+      ally:
+        - undead
+  fighter:
+    name: Warrior
+    desc: A burly, seasoned warrior.
+    freq: 10
+    str: 2
+    stam: 2
+    spd: 1
+    skl: 1
+    glyph: "@"
+    color: White
+    mh: greatAxe
+    oh: none
+    armor: chainMail
+    trinket: none
+    vision: 6
+    gainsXP: true
+    ai: hunt
+    tags:
+      - hero
+      - door
+      - leader
+    xp: 300
+    skills:
+      - Hulking Titan Stance
+      - Stonebreaker
+      - Rumble
+    factions:
+      hostile:
+        - wolf
+        - undead
+  rogue:
+    name: Rogue
+    desc: A lithe, deft scoundrel.
+    freq: 10
+    str: 1
+    stam: 1
+    spd: 2
+    skl: 2
+    glyph: "@"
+    color: Yellow
+    mh: dagger
+    oh: dagger
+    armor: leather
+    trinket: none
+    vision: 6
+    ai: hunt
+    tags:
+      - hero
+      - door
+      - leader
+    gainsXP: true
+    xp: 300
+    skills:
+      - Cunning Snake Stance
+      - Swift Fang Strike
+      - Preparation
+      - Poisoned Blades
+    factions:
+      hostile:
+        - wolf
+        - undead
+  cleric:
+    name: Oathbound
+    desc: An Oathbound, devoted to the Raven.
+    freq: 10
+    str: 1
+    stam: 2
+    spd: 1
+    skl: 1
+    glyph: "@"
+    color: Crimson
+    mh: mace
+    oh: woodShield
+    armor: chainMail
+    trinket: ravenSymbol
+    vision: 6
+    ai: hunt
+    tags:
+      - hero
+      - door
+      - leader
+    gainsXP: true
+    xp: 300
+    factions:
+      hostile:
+        - wolf
+        - undead
